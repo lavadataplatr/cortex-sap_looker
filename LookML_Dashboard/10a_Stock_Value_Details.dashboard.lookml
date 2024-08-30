@@ -12,7 +12,7 @@
     type: looker_column
     fields: [inventory_by_plant.plant_name_name2, inventory_by_plant.sum_inventory_value_target_currency_for_plant]
     filters:
-      inventory_by_plant.week_end_date: today
+      inventory_by_plant.week_end_date: 2024/08/29
     sorts: [inventory_by_plant.sum_inventory_value_target_currency_for_plant desc
         0]
     limit: 500
@@ -57,7 +57,6 @@
     x_axis_zoom: true
     y_axis_zoom: true
     label_value_format: ''
-    series_types: {}
     series_colors: {}
     label_color: [grey]
     show_dropoff: false
@@ -102,7 +101,7 @@
       inventory_by_plant.inventory_value_target_currency, inventory_by_plant.exchange_rate,
       inventory_by_plant.target_currency, inventory_by_plant.company_text_butxt]
     filters:
-      inventory_by_plant.week_end_date: today
+      inventory_by_plant.week_end_date: 2024/08/29
     sorts: [inventory_by_plant.plant_name_name2]
     limit: 500
     column_limit: 50
@@ -154,12 +153,6 @@
       currency_conversion_new.tcurr: Global Currency
       inventory_by_plant.batch_number_charg: Batch
       inventory_by_plant.inventory_value_target_currency: Stock Value Target Currency
-    series_column_widths: {}
-    series_value_format:
-      inventory_by_plant.cal_year:
-        name: id
-        format_string: '0'
-        label: ID
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_y_axis_labels: true
@@ -186,7 +179,6 @@
     show_silhouette: false
     totals_color: "#808080"
     defaults_version: 1
-    series_types: {}
     hidden_fields: []
     listen:
       Country: inventory_by_plant.country_key_land1

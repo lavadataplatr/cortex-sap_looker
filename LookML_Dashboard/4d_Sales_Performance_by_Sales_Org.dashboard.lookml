@@ -17,8 +17,9 @@
       sales_orders.currency_waerk, sales_orders.sales_order_value_glob_curr, currency_conversion_new.tcurr,
       divisions_md.division_name_vtext, sales_orders.max_sold_to_party_name, sales_orders.max_ship_to_party_name,
       sales_orders.max_bill_to_party_name]
-    sorts: [sales_organizations_md.sales_org_name_vtext]
+    sorts: [sales_organizations_md.sales_org_name_vtext desc]
     limit: 500
+    column_limit: 50
     show_view_names: false
     show_row_numbers: true
     transpose: false
@@ -60,7 +61,6 @@
       sales_orders.max_sold_to_party_name: Sold To Party
       sales_orders.max_ship_to_party_name: Ship To Party
       sales_orders.max_bill_to_party_name: Bill To Party
-    series_column_widths: {}
     defaults_version: 1
     hidden_fields: []
     y_axes: []
@@ -102,7 +102,6 @@
     enable_conditional_formatting: false
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
-    series_types: {}
     defaults_version: 1
     listen:
       Year: sales_orders.creation_date_erdat_date

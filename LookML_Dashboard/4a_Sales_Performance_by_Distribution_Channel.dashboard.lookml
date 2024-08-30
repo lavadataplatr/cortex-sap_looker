@@ -34,7 +34,6 @@
     header_font_size: 12
     rows_font_size: 12
     defaults_version: 1
-    series_types: {}
     listen:
       Division: divisions_md.division_name_vtext
       Currency: currency_conversion_new.tcurr
@@ -58,8 +57,7 @@
       sales_orders.sales_order_value_line_item_source_currency, sales_orders.currency_waerk,
       sales_orders.sales_order_value_glob_curr, currency_conversion_new.tcurr, sales_orders.cumulative_order_quantity_kwmeng,
       sales_orders.max_sold_to_party_name, sales_orders.max_ship_to_party_name, sales_orders.max_bill_to_party_name]
-    filters: {}
-    sorts: [sales_organizations_md.sales_org_name_vtext]
+    sorts: [distribution_channels_md.distribution_channel_name_vtext desc]
     limit: 500
     column_limit: 50
     show_view_names: false
@@ -119,7 +117,6 @@
       sales_orders.sales_order_netvalue_global_currency:
         is_active: false
     defaults_version: 1
-    series_column_widths: {}
     listen:
       Division: divisions_md.division_name_vtext
       Currency: currency_conversion_new.tcurr

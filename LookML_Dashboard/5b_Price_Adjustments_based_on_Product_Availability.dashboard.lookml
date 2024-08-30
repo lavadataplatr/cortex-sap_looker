@@ -14,7 +14,8 @@
       sales_orders.item_posnr, sales_orders.cumulative_order_quantity_kwmeng, sales_orders.list_price_glob_curr,
       sales_orders.adjusted_price_glob_curr, sales_orders.intercompany_price_glob_curr,
       sales_orders.discount_glob_curr, customers_md.name1_name1, sales_orders.sales_order_netvalue_glob_curr_1]
-    sorts: [materials_md.material_text_maktx]
+    sorts: [materials_md.material_text_maktx desc, sales_orders.sales_order_netvalue_glob_curr_1
+        desc]
     limit: 500
     column_limit: 50
     show_view_names: false
@@ -101,7 +102,6 @@
     header_font_size: 12
     rows_font_size: 12
     defaults_version: 1
-    series_types: {}
     listen:
       Sales Order Net value: sales_orders.sales_order_netvalue_glob_curr
       Product: materials_md.material_text_maktx

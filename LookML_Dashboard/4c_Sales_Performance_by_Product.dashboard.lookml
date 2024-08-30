@@ -18,7 +18,7 @@
       sales_orders.max_sold_to_party_name, sales_orders.max_ship_to_party_name, sales_orders.max_bill_to_party_name]
     filters:
       sales_orders.division_spart: ''
-    sorts: [materials_md.material_text_maktx]
+    sorts: [materials_md.material_text_maktx desc]
     limit: 500
     column_limit: 50
     show_view_names: false
@@ -70,7 +70,6 @@
       sales_orders.max_sold_to_party_name: Sold To Party
       sales_orders.max_ship_to_party_name: Ship To Party
       sales_orders.max_bill_to_party_name: Bill To Party
-    series_column_widths: {}
     series_cell_visualizations: {}
     defaults_version: 1
     hidden_fields: []
@@ -116,7 +115,6 @@
     header_font_size: 12
     rows_font_size: 12
     defaults_version: 1
-    series_types: {}
     listen:
       Year: sales_orders.creation_date_erdat_date
       Currency: currency_conversion_new.tcurr

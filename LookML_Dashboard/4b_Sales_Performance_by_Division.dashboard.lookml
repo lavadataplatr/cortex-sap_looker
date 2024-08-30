@@ -34,7 +34,6 @@
     header_font_size: 12
     rows_font_size: 12
     defaults_version: 1
-    series_types: {}
     listen:
       Division: divisions_md.division_name_vtext
       Product: materials_md.material_text_maktx
@@ -59,8 +58,7 @@
       sales_orders.currency_waerk, sales_orders.sales_order_value_glob_curr, currency_conversion_new.tcurr,
       sales_orders.cumulative_order_quantity_kwmeng, sales_orders.max_sold_to_party_name,
       sales_orders.max_ship_to_party_name, sales_orders.max_bill_to_party_name]
-    filters: {}
-    sorts: [sales_organizations_md.sales_org_name_vtext]
+    sorts: [divisions_md.division_name_vtext desc]
     limit: 5000
     column_limit: 50
     show_view_names: false
@@ -120,7 +118,6 @@
       sales_orders.sales_order_value_glob_curr, currency_conversion_new.tcurr]
     pinned_columns:
       "$$$_row_numbers_$$$": left
-    series_column_widths: {}
     listen:
       Division: divisions_md.division_name_vtext
       Product: materials_md.material_text_maktx

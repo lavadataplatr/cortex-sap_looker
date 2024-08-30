@@ -14,8 +14,10 @@
       materials_md.material_text_maktx, sales_orders.variation_of_listprice_and_adjustedprice,
       sales_orders.cumulative_order_quantity_kwmeng, sales_orders.list_price_glob_curr,
       sales_orders.adjusted_price_glob_curr, sales_orders.sales_order_netvalue_glob_curr_1]
-    sorts: [customers_md.name1_name1]
+    filters: {}
+    sorts: [sales_orders.sales_order_netvalue_glob_curr_1 desc]
     limit: 500
+    column_limit: 50
     show_view_names: false
     show_row_numbers: true
     transpose: false
@@ -92,7 +94,6 @@
     enable_conditional_formatting: false
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
-    series_types: {}
     defaults_version: 1
     listen:
       Region: countries_md.country_name_landx
