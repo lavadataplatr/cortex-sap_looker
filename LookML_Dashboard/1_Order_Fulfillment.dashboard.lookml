@@ -19,7 +19,6 @@
     type: text
     title_text: <a href="/dashboards/cortex_sap_operational::sap_order_to_cash_o2c_01_a_delivery_performance_performance_tuning">Delivery
       Performance</a>
-    subtitle_text: ''
     body_text: ''
     row: 8
     col: 0
@@ -147,7 +146,6 @@
     table_theme: editable
     limit_displayed_rows: false
     defaults_version: 1
-    series_types: {}
     hidden_fields: []
     y_axes: []
     listen:
@@ -172,12 +170,25 @@
       deliveries.Order_Cycle_Time: NOT NULL
     sorts: [average_of_order_cycle_time_1 desc]
     limit: 500
-    dynamic_fields: [{measure: average_of_order_cycle_time, based_on: deliveries.Order_Cycle_Time,
-        expression: '', label: Average of Order Cycle Time, type: average, _kind_hint: measure,
-        _type_hint: number, id: cy7lHmcwoH}, {category: measure, expression: '', label: Average
-          of Order Cycle Time, value_format: !!null '', value_format_name: decimal_2,
-        based_on: deliveries.Order_Cycle_Time, _kind_hint: measure, measure: average_of_order_cycle_time_1,
-        type: average, _type_hint: number}]
+    dynamic_fields:
+    - measure: average_of_order_cycle_time
+      based_on: deliveries.Order_Cycle_Time
+      expression: ''
+      label: Average of Order Cycle Time
+      type: average
+      _kind_hint: measure
+      _type_hint: number
+      id: cy7lHmcwoH
+    - category: measure
+      expression: ''
+      label: Average of Order Cycle Time
+      value_format:
+      value_format_name: decimal_2
+      based_on: deliveries.Order_Cycle_Time
+      _kind_hint: measure
+      measure: average_of_order_cycle_time_1
+      type: average
+      _type_hint: number
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -196,7 +207,7 @@
     limit_displayed_rows: true
     legend_position: center
     point_style: none
-    show_value_labels: false
+    show_value_labels: true
     label_density: 25
     x_axis_scale: auto
     y_axis_combined: true
@@ -210,11 +221,14 @@
         showLabels: true, showValues: true, unpinAxis: false, tickDensity: default,
         tickDensityCustom: 5, type: linear}]
     x_axis_label: Product
+    x_axis_zoom: true
+    y_axis_zoom: true
     limit_displayed_rows_values:
       show_hide: show
       first_last: first
       num_rows: '10'
     label_value_format: '0.00'
+    label_color: ["#e"]
     defaults_version: 1
     hidden_fields: []
     listen:
@@ -240,15 +254,34 @@
     sorts: [sales_orders.creation_date_erdat_month]
     limit: 500
     column_limit: 50
-    dynamic_fields: [{category: table_calculation, expression: "${deliveries.count_on_time_delivery}/${deliveries.count_of_deliveries}",
-        label: On Time %, value_format: !!null '', value_format_name: percent_1, _kind_hint: measure,
-        table_calculation: on_time, _type_hint: number, id: yuk3RNbXmc}, {category: table_calculation,
-        expression: "${deliveries.count_in_full_delivery}/${deliveries.count_of_deliveries}",
-        label: In Full %, value_format: !!null '', value_format_name: percent_1, _kind_hint: measure,
-        table_calculation: in_full, _type_hint: number, id: MdTeyHWNoo}, {category: table_calculation,
-        expression: "${deliveries.count_otif}/${deliveries.count_of_deliveries}",
-        label: OTIF %, value_format: !!null '', value_format_name: percent_1, _kind_hint: measure,
-        table_calculation: otif, _type_hint: number, id: mkIEP9ohdi}]
+    dynamic_fields:
+    - category: table_calculation
+      expression: "${deliveries.count_on_time_delivery}/${deliveries.count_of_deliveries}"
+      label: On Time %
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: on_time
+      _type_hint: number
+      id: yuk3RNbXmc
+    - category: table_calculation
+      expression: "${deliveries.count_in_full_delivery}/${deliveries.count_of_deliveries}"
+      label: In Full %
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: in_full
+      _type_hint: number
+      id: MdTeyHWNoo
+    - category: table_calculation
+      expression: "${deliveries.count_otif}/${deliveries.count_of_deliveries}"
+      label: OTIF %
+      value_format:
+      value_format_name: percent_1
+      _kind_hint: measure
+      table_calculation: otif
+      _type_hint: number
+      id: mkIEP9ohdi
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -266,19 +299,25 @@
     stacking: ''
     limit_displayed_rows: false
     legend_position: center
-    point_style: none
-    show_value_labels: false
+    point_style: circle
+    show_value_labels: true
     label_density: 25
     x_axis_scale: auto
     y_axis_combined: true
     show_null_points: true
     interpolation: linear
-    y_axes: []
+    y_axes: [{label: '', orientation: left, series: [{axisId: on_time, id: on_time,
+            name: On Time %}, {axisId: in_full, id: in_full, name: In Full %}, {axisId: otif,
+            id: otif, name: OTIF %}], showLabels: true, showValues: true, unpinAxis: false,
+        tickDensity: default, tickDensityCustom: 5, type: linear}]
     x_axis_label: Month
+    x_axis_zoom: true
+    y_axis_zoom: true
     series_colors:
       on_time: "#ffe22c"
       in_full: "#18e4ff"
-      otif: "#ff51a3"
+      otif: "#009688"
+    label_color: ["#e"]
     x_axis_datetime_label: "%B %y"
     defaults_version: 1
     hidden_fields: [deliveries.count_on_time_delivery, deliveries.count_in_full_delivery,
@@ -312,7 +351,6 @@
     enable_conditional_formatting: false
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
-    series_types: {}
     defaults_version: 1
     listen:
       Year: sales_orders.creation_date_erdat_date

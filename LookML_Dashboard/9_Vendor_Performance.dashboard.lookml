@@ -16,16 +16,34 @@
     sorts: [vendor_performance.avg_vendor_cycle_time_in_days desc 0]
     limit: 5
     column_limit: 50
-    dynamic_fields: [{category: measure, expression: '', label: Average of Vendor
-          Cycle Time In Days, value_format: !!null '', value_format_name: decimal_2,
-        based_on: vendor_performance.vendor_cycle_time_in_days, _kind_hint: measure,
-        measure: average_of_vendor_cycle_time_in_days, type: average, _type_hint: number},
-      {measure: sum_of_vendor_cycle_time_in_days, based_on: vendor_performance.vendor_cycle_time_in_days,
-        expression: '', label: Sum of Vendor Cycle Time In Days, type: sum, _kind_hint: measure,
-        _type_hint: number}, {category: table_calculation, expression: 'if(${vendor_performance.name1}
-          = null AND ${vendor_performance.vendor_account_number_lifnr} = null,no,yes)',
-        label: Null Calc, value_format: !!null '', value_format_name: !!null '', _kind_hint: dimension,
-        table_calculation: null_calc, _type_hint: yesno, is_disabled: true}]
+    dynamic_fields:
+    - category: measure
+      expression: ''
+      label: Average of Vendor Cycle Time In Days
+      value_format:
+      value_format_name: decimal_2
+      based_on: vendor_performance.vendor_cycle_time_in_days
+      _kind_hint: measure
+      measure: average_of_vendor_cycle_time_in_days
+      type: average
+      _type_hint: number
+    - measure: sum_of_vendor_cycle_time_in_days
+      based_on: vendor_performance.vendor_cycle_time_in_days
+      expression: ''
+      label: Sum of Vendor Cycle Time In Days
+      type: sum
+      _kind_hint: measure
+      _type_hint: number
+    - category: table_calculation
+      expression: if(${vendor_performance.name1} = null AND ${vendor_performance.vendor_account_number_lifnr}
+        = null,no,yes)
+      label: Null Calc
+      value_format:
+      value_format_name:
+      _kind_hint: dimension
+      table_calculation: null_calc
+      _type_hint: yesno
+      is_disabled: true
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -67,7 +85,6 @@
     y_axis_zoom: true
     font_size: '10'
     label_value_format: '0.0'
-    series_types: {}
     series_colors:
       vendor_performance.avg_vendor_cycle_time_in_days: "#079c98"
     series_labels:
@@ -151,7 +168,6 @@
     x_axis_label: ''
     font_size: '10'
     label_value_format: ''
-    series_types: {}
     series_colors:
       vendor_performance.Infull_rate_vendor: "#8ebde8"
     series_labels:
@@ -186,7 +202,6 @@
     type: looker_column
     fields: [vendor_performance.name1, vendor_performance.sum_standard_cost, vendor_performance.sum_net_price_in_target_currency_netpr,
       vendor_performance.sum_purchase_price_variance]
-    filters: {}
     sorts: [vendor_performance.sum_net_price_in_target_currency_netpr desc 0]
     limit: 5
     column_limit: 50
@@ -231,8 +246,6 @@
     font_size: '10'
     label_value_format: ''
     series_types:
-      purchase_price_varaince.purchase_varainace_pv: area
-      vendor_performance.sum_Purchase_Variance_global_currency: area
       vendor_performance.sum_purchase_price_variance: area
     series_colors:
       purchase_price_varaince.purchase_varainace_pv: "#FF8168"
@@ -317,7 +330,6 @@
         tickDensityCustom: 5, type: linear}]
     hidden_series: []
     font_size: '10'
-    series_types: {}
     series_colors:
       vendor_performance.count_past_due: "#E52592"
       vendor_performance.count_open_po: "#7CB342"
@@ -375,7 +387,6 @@
     explore: vendor_performance
     type: single_value
     fields: [vendor_performance.Vendor_Ontime]
-    filters: {}
     limit: 500
     column_limit: 50
     custom_color_enabled: true
@@ -413,7 +424,6 @@
     explore: vendor_performance
     type: single_value
     fields: [vendor_performance.Invoice_Accuracy]
-    filters: {}
     limit: 500
     column_limit: 50
     custom_color_enabled: true
@@ -425,7 +435,6 @@
     enable_conditional_formatting: false
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
-    series_types: {}
     defaults_version: 1
     hidden_fields: []
     y_axes: []
@@ -450,7 +459,6 @@
     explore: vendor_performance
     type: single_value
     fields: [vendor_performance.Rejection_rate]
-    filters: {}
     limit: 500
     column_limit: 50
     custom_color_enabled: true
@@ -484,12 +492,12 @@
   - name: Purchase Order Date
     title: Purchase Order Date
     type: field_filter
-    default_value: 365 day
+    default_value: ''
     allow_multiple_values: true
-    required: true
+    required: false
     ui_config:
-      type: relative_timeframes
-      display: inline
+      type: advanced
+      display: popover
       options: []
     model: sap_cortex_looker
     explore: vendor_performance
